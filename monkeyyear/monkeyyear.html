@@ -1,0 +1,138 @@
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+</head>
+
+<body style="background:#fff;">
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+    }
+
+    .banner{
+        height: 1041px;
+        background:center no-repeat;
+    }
+    .pic2{
+        height: 463px;
+        background:center no-repeat;
+    }
+   .pic2 img{
+       display: block;
+       margin: 0 auto;
+       width: 341px;
+       height: 92px;
+       padding-top: 290px;
+   }
+    .pic3{
+        height: 824px;
+        background: center no-repeat;
+    }
+    .pic4{
+        height: 2298px;
+        background:center no-repeat;
+    }
+    .pic5{
+        height: 639px;
+        background: center no-repeat;
+    }
+    .inputbg{background: #E63C2F;}
+    .content{width: 750px; margin:0 auto;padding: 100px 0px 70px;}
+    .input_box{padding-top: 10px;}
+    .input_box input{display: block;margin:25px auto;border-radius: 2px;border: 0px; outline: none;}
+    .input_box input[type=text]{width: 299px;height: 40px; background: #fff;padding: 5px 8px;line-height: 40px; font-size: 18px;}
+    .input_box input[type=button]{width: 315px;height: 66px;background: none;}
+    .flaotbtn{
+        width: 100%;
+        background: rgba(255,255,255,.5);
+        padding: 10px 0;
+        box-shadow: 0 0 10px #666;
+        position: fixed;
+        top: 0;
+        left: 0;
+        text-align: center;
+        display: none;
+    }
+    .bt1{cursor: pointer;width: 341px;height: 92px;}
+    .location{
+        width: 1px;
+        height: 1px;
+        position: absolute;
+        margin-top: -115px;
+    }
+
+</style>
+
+<div class="banner lazy" data-original="image/pic1.jpg" ></div>
+<div class="pic2 lazy" data-original="image/pic2.jpg">
+    <img class="bt1 lazy" data-original="image/bt1.jpg"/>
+</div>
+<div class="pic3 lazy" data-original="image/pic3.jpg"></div>
+<div class="pic4 lazy" data-original="image/pic4.jpg"></div>
+<div class="location"></div>
+<div class="inputbg">
+    <div class="content">
+        <img src="image/word.jpg" class="NY_font"/>
+        <div class="input_box">
+            <input type="text" name="name" id="name" placeholder="联系人姓名"/>
+            <input type="text" name="phone" id="phone" maxlength="11" placeholder="请输入手机号码" />
+            <input type="text" name="area" id="area" placeholder="请输入面积" />
+            <input type="image" src="image/bt2.jpg" class="button" onclick="partnerClick()"/>
+        </div>
+    </div>
+</div>
+<div class="pic5 lazy" data-original="image/pic5.jpg"></div>
+<div class="flaotbtn"><img src="image/bt1.jpg" class="bt1"/></div>
+
+<script type="text/javascript" src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+<script type="text/javascript" src="image/jquery.scrollTo.js"></script>
+<script type="text/javascript" src="image/lazyload.js"></script>
+<script type="text/javascript">
+
+        $(window).scroll(function(){
+                var Top = $(document).scrollTop();
+                if (Top > 1450) {
+                    $('.flaotbtn').show();
+                } else {
+                    $('.flaotbtn').hide();
+                }
+        })
+        $(".bt1").click(function(){
+            $.scrollTo(".location",400);
+        });
+        function partnerClick(){
+            //获取表单元素
+            var name = $("#name");
+            var phone = $('#phone');
+            var area = $('#area');
+            //检测中文正则表达式
+            var nameCheck = /^[\u4e00-\u9fa5]+$/;
+            if (!nameCheck.test(name.val())) {
+                alert("请输入中文名字");
+                return false;
+            }
+            //检测电话正则表达式
+            var phoneCheck = /^((\d{11})|^((\d{7,8})|(\d{4}|\d{3})-(\d{7,8})|(\d{4}|\d{3})-(\d{7,8})-(\d{4}|\d{3}|\d{2}|\d{1})|(\d{7,8})-(\d{4}|\d{3}|\d{2}|\d{1}))$)/
+            if (!phoneCheck.test(phone.val())) {
+                alert("请输入正确联系电话");
+                return false;
+            }
+            $.post("#",
+                    {
+                        name:name.val(),
+                        phone:phone.val(),
+                        area:area.val()
+
+                    },function(data){
+                        alert(data.msg);
+                        name.val('');
+                        phone.val('');
+                        area.val('');
+                    },'json');
+        }
+</script>
+
+</body>
+</html>
