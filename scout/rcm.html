@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>全民星探</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta content="yes" name="apple-mobile-web-app-capable"/>
+    <meta content="yes" name="apple-touch-fullscreen"/>
+    <meta content="telephone=no,email=no" name="format-detection"/>
+    <script type="text/javascript">
+        (function(i,b){function h(){return parseFloat(i.getComputedStyle(b.documentElement,null)["font-size"])}function c(){if(j){var a=b.documentElement.offsetWidth;if(j!=a){var d=b.createElement("style");d.innerHTML="@media only screen and (width: "+a+"px) {html{font-size: "+200/750*a+"px !important;}}";b.getElementsByTagName("head")[0].appendChild(d);i.removeEventListener("orientationchange",orientationchange)}}else{j=b.documentElement.offsetWidth,b.documentElement.style.fontSize=200/750*j+"px",a=h(),d=200/750*j,a!==d&&(a>d+1||a<d-1)&&(b.documentElement.style.fontSize="200px",b.documentElement.style.fontSize=200/h()*d+"px")}}var j;c();0>i.navigator.userAgent.indexOf("iPhone")&&i.addEventListener("orientationchange",function(){setTimeout(function(){c()},300)})})(window,document);
+    </script>
+    <link type="text/css" href="style.css" rel="stylesheet"/>
+</head>
+<body>
+    <div class="head1"><span class="backimg itemimg recommend"></span></div>
+    <div class="input1">
+        <span>客户姓名</span>
+        <input type="text" placeholder="请输入客户姓名"/>
+    </div>
+    <div class="input1">
+        <span>手机号码</span>
+        <input type="text" placeholder="请输入手机号码"/>
+    </div>
+    <div class="input1 input-last">
+        <span>所在城市</span>
+        <input type="text" placeholder="请输入所在城市"/>
+    </div>
+    <a class="btn" href="#">马上推荐</a>
+    <span class="prompt">请正确填写手机号码、姓名、银行卡信息。</span>
+
+</body>
+</html>

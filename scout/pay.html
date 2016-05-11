@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta content="yes" name="apple-mobile-web-app-capable"/>
+    <meta content="yes" name="apple-touch-fullscreen"/>
+    <meta content="telephone=no,email=no" name="format-detection"/>
+   <!-- <script type="text/javascript">
+        (function(i,b){function h(){return parseFloat(i.getComputedStyle(b.documentElement,null)["font-size"])}function c(){if(j){var a=b.documentElement.offsetWidth;if(j!=a){var d=b.createElement("style");d.innerHTML="@media only screen and (width: "+a+"px) {html{font-size: "+200/750*a+"px !important;}}";b.getElementsByTagName("head")[0].appendChild(d);i.removeEventListener("orientationchange",orientationchange)}}else{j=b.documentElement.offsetWidth,b.documentElement.style.fontSize=200/750*j+"px",a=h(),d=200/750*j,a!==d&&(a>d+1||a<d-1)&&(b.documentElement.style.fontSize="200px",b.documentElement.style.fontSize=200/h()*d+"px")}}var j;c();0>i.navigator.userAgent.indexOf("iPhone")&&i.addEventListener("orientationchange",function(){setTimeout(function(){c()},300)})})(window,document);
+    </script>-->
+    <style>
+        html,body{height:100%;margin:0;padding:0;font-family:"Microsoft YaHei",Arial,Helvetica,sans-serif,"宋体";}
+        *{padding: 0;margin: 0; outline: 0;}
+        input,button{-webkit-appearance:none;}
+        table{border-collapse:collapse;border-spacing:0;}
+        a{text-decoration: none;}
+        .clearfix:after{content:"";display:block;clear:both;}
+        .clearfix{*zoom:1}
+        .left{float: left;}
+        .right{float: right;}
+        body{background: #f6f6f6;}
+        .container{width: 90%;margin: 0 auto;text-align: center;line-height: 0;}
+        .logofont{font-size: 0.14rem;color: #616160;display: block;padding: 0 0 0.2rem;}
+        .logo{width: 0.7rem;margin: 0.2rem 0;}
+        .page1{background: #fff;border: 1px solid #e6e6e9;font-size: 0.14rem;text-align:left;padding:0.1rem 0.1rem;}
+        .name{color: #525252;line-height: 0.25rem;}
+        .inputtype,.inputtype2{border-bottom: 1px solid #e6e6e9;}
+        .inputtype input{font-size: 0.6rem;width: 2.7rem;border: 0;}
+        .inputtype span{vertical-align: top;margin-top: 0.25rem;display: inline-block;font-size: 0.24rem;}
+        .inputtype2 input{font-size: 0.18rem;width: 3rem;border: 0;line-height: 0.35rem;}
+        .radiobox{padding: 0.1rem 0.6rem 0;}
+        .regular-radio{display:none}
+        .regular-radio + label{-webkit-appearance:none;border:1px solid #cacece;padding:0.09rem;border-radius:100%;display:inline-block;position:relative}
+        .regular-radio:checked + label:after{content:' ';width:0.19rem;height:0.19rem;border-radius:100%;position:absolute;background:url("images/choice.png") no-repeat center;background-size:0.2rem 0.2rem;left:-0.01rem;top:-0.01rem;}
+        .regular-radio:checked + label{border:1px solid #adb8c0;}
+        .big-radio + label{padding:0.08rem;}
+        .big-radio:checked + label:after{width:0.12rem;height:0.12rem;left:0.02rem;top:0.02rem}
+        .zi{vertical-align: super;padding-left: 0.05rem;}
+        .white{width: 0.65rem;display: inline-block;}
+        .container a{background: #0ac408;color:#fff;font-size: 0.18rem;text-align: center;display: block;line-height: 0.4rem;margin-top: 0.15rem;border-radius: 0.02rem;}
+    </style>
+    <!--<style>
+        .weui_mask_transparent{position:fixed;z-index:1;width:100%;height:100%;top:0;left:0}
+        .weui_toast{position:fixed;z-index:3;width:121.6px;min-height:121.6px;top:50%;left:50%;transform:translate(-50%,-50%);-webkit-transform:translate(-50%,-50%);background:rgba(40, 40, 40, .75);text-align:center;border-radius:5px;font-size:16px;color:#FFF}
+        .weui_icon_toast{margin:22px auto 0;display:block;width:55px;height:55px;background:url("images/sure.png") no-repeat center}
+        .weui_toast_content{margin:0 0 15px}
+    </style>-->
+</head>
+<body>
+    <div class="container" style="display: none">
+        <img src="images/logo.png" class="logo"/>
+        <span class="logofont">360装房网</span>
+        <div class="page1">
+            <span class="name">付款金额</span>
+            <div class="inputtype">
+                <span>￥</span><input type="text"/>
+            </div>
+            <span class="name">输入客户姓名</span>
+            <div class="inputtype2">
+                <input type="text"/>
+            </div>
+            <div class="radiobox">
+                <input type="radio" id="radio-1-1" name="radio-1-set" class="regular-radio" checked=""><label for="radio-1-1"></label><label for="radio-1-1" class="zi">订金</label>
+                <span class="white"></span>
+                <input type="radio" id="radio-1-2" name="radio-1-set" class="regular-radio"><label for="radio-1-2"></label><label for="radio-1-2" class="zi">合同款</label>
+            </div>
+        </div>
+        <a href="#">付款</a>
+    </div >
+    
+<script>
+    /*var obj2={
+        "head": "",
+        "content": "请填写金额",
+        "type": "2",
+        "cancel":function(){},
+        "confirm":function(){}
+    };
+    dialog(obj2);*/
+    /*var obj = {
+        content:"",
+        cancel:function(){}
+    }
+    dialog(obj);*/
+    var ok={
+        "content":"已完成",
+        "type":3
+    };
+    dialog(ok);
+    function dialog(obj) {
+        if(typeof obj === "string") {
+            obj = {
+                content:obj
+            };
+        }
+        obj.type = obj.type||1;
+        var content='';
+        if(obj.type==3){
+            content='<div id="toast" style="display:block;"><div style="position:fixed;z-index:1;width:100%;height:100%;top:0;left:0"></div><div style="position:fixed;z-index:3;width:121.6px;min-height:121.6px;top:50%;left:50%;transform:translate(-50%,-50%);-webkit-transform:translate(-50%,-50%);background:rgba(40, 40, 40, .75);text-align:center;border-radius:5px;font-size:16px;color:#FFF"><span style="margin:22px auto 0;display:block;width:55px;height:55px;background:url(&apos;images/sure.png&apos; ) no-repeat center"></span><p style="margin:0 0 15px">'+obj.content+'</p></div></div>';
+            var newdialog = document.createElement('div');
+            newdialog.id="dialog";
+            newdialog.innerHTML = content;
+            document.body.appendChild(newdialog);
+            setTimeout(function(){
+                newdialog.parentNode.removeChild(newdialog);
+            },1200);
+
+        }else{
+            content +='<div class="big_bg" style="position:fixed;top:0;left:0;width:100%;height:100%;z-index:9999;background:rgba(0,0,0,.4)"></div><div class="dialog_content" style="background:#fff;min-width:70%;position:fixed;z-index:10000;border-radius:10px;text-align:center;font-size:18px;left:50%;top:50%;-webkit-transform:translate(-50%,-50%)">';
+            if(obj.head) {
+                content +='<div style="line-height:45px;border-bottom:1px solid #C7C2C2">'+obj.head+'</div>';
+            }
+            content +='<div style="margin:0 auto;padding:15px 10px;font-size:16px;line-height:23px">'+obj.content+'</div><div style="border-top: 1px solid #C7C2C2;color: #42C4F3;" class="ui-dialog-ft">';
+            if(obj.type == 1) {
+                content +='<div class="cancel" style="width: 100%;line-height:45px;height:45px;">确认</div></div></div>';
+            }else{
+                content +='<div class="cancel" style="width:49.8%;line-height:45px;height:45px;float:left;border-right:1px solid #C7C2C2">取消</div><div class="confirm" style="width:49.8%;line-height:45px;height:45px;float:left">确认</div></div></div>';
+            }
+            var newdialog = document.createElement('div');
+            newdialog.id="dialog";
+            newdialog.innerHTML = content;
+            document.body.appendChild(newdialog);
+            var	dialogcancel = document.querySelector("#dialog .cancel"),
+                    dialogconfirm = document.querySelector("#dialog .confirm");
+
+            document.addEventListener("touchmove", stopDefault, false);
+            dialogcancel.addEventListener("click", removedialog, false);
+            function removedialog() {
+                destroy();
+                if(obj.cancel)obj.cancel();
+            }
+            if(obj.type==2) {
+                dialogconfirm.addEventListener("click", removedialog_confirm, false);
+            }
+            function removedialog_confirm() {
+                destroy();
+                if(obj.confirm)obj.confirm();
+            }
+            function stopDefault(e) {
+                e.preventDefault();
+            }
+            function destroy() {
+                if(obj.type==2) {
+                    dialogconfirm.removeEventListener("click", removedialog_confirm, false);
+                }
+                dialogcancel.removeEventListener("click", removedialog, false);
+                document.removeEventListener("touchmove", stopDefault, false);
+                newdialog.parentNode.removeChild(newdialog);
+            }
+        }
+    }
+</script>
+</body>
+</html>
