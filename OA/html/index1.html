@@ -73,11 +73,7 @@
                                                                                                   aria-hidden="true"></span>内容模块</h5>
                 <ul class="list-unstyled padbottom secondlevel">
                     <li data-toggle="tooltip" data-placement="right" title="装房通客户管理">
-                        <span class="glyphicon glyphicon-user" aria-hidden="true"></span>装房通客户管理                                <textarea
-                            class="none">                                    &lt;h4&gt;装房通客户管理&lt;/h4&gt;
-                                    &lt;ul class="list-unstyled list2 thirdlevel"&gt;
-                                                                            &lt;/ul&gt;
-                                </textarea>
+                        <span class="glyphicon glyphicon-user" aria-hidden="true"></span>装房通客户管理
                     </li>
                 </ul>
                 <div class="iconfig"><span class="glyphicon glyphicon-cog" aria-hidden="true"></span>权限管理</div>
@@ -199,8 +195,8 @@
             var key1 = index;
             console.log("key1" + key1);
             window.location.hash = key1;
-            var Grandson = $(this).find('textarea').val();
-            $(".third").empty().append(Grandson);
+            //var Grandson = $(this).find('textarea').val();
+            //$(".third").empty().append(Grandson);
             $(".list2 li").each(function (index) {
                 $(".list2 li").eq(0).click();
                 $(this).on("click", function () {
@@ -227,6 +223,12 @@
             $(".list2 li").eq(arry[1]).click();
         }
     }
+        var hreflist = ['reserve.html', 'distribute.html', 'addclient.html', 'following.html']
+        $(".list2 li").each(function (index) {
+            $(this).click(function () {
+                $('#mainframe').attr('src', hreflist[index]);
+            });
+        });
 
 
 </script>
